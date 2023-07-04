@@ -32,7 +32,6 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*=============== ADD BLUR TO HEADER ===============*/
 const blurHeader = () =>{
     const header = document.getElementById('header')
-    // When the scroll is greater than 50 viewport height, add the blur-header class to the header tag
     this.scrollY >= 50 ? header.classList.add('blur-header') 
                        : header.classList.remove('blur-header')
 }
@@ -44,18 +43,14 @@ const contactForm = document.getElementById('contact__form')
 
 const sendEmail = (e) =>{
     e.preventDefault()
-
-    // serviceID - templateID - #form - publicKey
     emailjs.sendForm('service_w2tsmmq' , 'template_9f4rxvo' , '#contact__form' , 'YoTMxV3BEat-1tWH7')
     .then(()=>{
         conatctMessage.textContent = 'Message sent successfully ✅'
 
-        // Remove message after five seconds
         setTimeout(()=>{
             conatctMessage.textContent = ''
         },5000)
 
-        // Clear input fields
         contactForm.reset()
     },()=>{
         conatctMessage.textContent = 'Message not sent (service error) ❌'
@@ -66,7 +61,6 @@ contactForm.addEventListener('submit', sendEmail)
 /*=============== SHOW SCROLL UP ===============*/ 
 const scrollUp = () =>{
 	const scrollUp = document.getElementById('scroll-up')
-    // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
 	this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
 						: scrollUp.classList.remove('show-scroll')
 }
@@ -98,7 +92,6 @@ const sr = ScrollReveal({
     distance: '60px',
     duration: 2500,
     delay: 400,
-    // reset: true // Animation repeat
 })
 
 sr.reveal(`.home__data, .home__social, .contact__container, .footer__container`)
